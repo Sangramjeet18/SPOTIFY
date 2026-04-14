@@ -1,61 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Spotify-like music player web application">
-  <title>Moodify — Music Player</title>
-
-  <!-- ========== FONTS ========== -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- ========== ICONS ========== -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- ========== STYLES ========== -->
-  <link rel="stylesheet" href="spotify.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify — Music for Everyone</title>
+    <link rel="stylesheet" href="Spotify.css" />
 </head>
-
 <body>
-  <!-- ============================================
-       MOBILE SIDEBAR TOGGLE
-       ============================================ -->
-  <button class="sidebar-toggle" aria-label="Toggle navigation menu" onclick="document.querySelector('.sidebar').classList.toggle('sidebar--open')">
-    <i class="fas fa-bars"></i>
-  </button>
 
-  <!-- ============================================
-       SIDEBAR — Left Navigation
-       ============================================ -->
+<div class="app" role="application" aria-label="Spotify Web Player">
+
+  <!-- ============================================================
+       LEFT SIDEBAR
+  ============================================================ -->
   <aside class="sidebar" aria-label="Main navigation">
 
-    <!-- Logo -->
-    <a href="#" class="sidebar__logo" aria-label="Moodify home">
-      <span class="sidebar__logo-icon"><i class="fas fa-music"></i></span>
-      <span class="sidebar__logo-text">Moodify</span>
-    </a>
+    <!-- Spotify Logo -->
+    <div class="sidebar__logo">
+      <a href="#" class="sidebar__logo-link" aria-label="Spotify — Go to home">
+        <!-- Spotify SVG Wordmark Icon -->
+        <svg class="sidebar__logo-icon" viewBox="0 0 496 512" fill="white" aria-hidden="true" focusable="false">
+          <path d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.3-10.7-3.6-62.4-37.6-135-39.2-206.7-24.5-3.9 1-9 2.6-11.9 2.6-9.7 0-15.8-7.7-15.8-15.8 0-10.3 6.1-15.2 13.6-16.8 81.9-18.1 165.6-16.5 237 26.2 6.1 3.9 9.7 7.4 9.7 16.5s-7.1 15.4-15.2 15.4zm26.9-65.6c-5.2 0-8.7-2.3-12.3-4.2-62.5-37-155.7-51.9-238.6-29.4-4.8 1.3-7.4 2.6-11.9 2.6-10.7 0-19.4-8.7-19.4-19.4s5.2-17.8 15.5-20.7c27.8-7.8 56.2-13.6 97.8-13.6 64.9 0 127.6 16.1 177 45.5 8.1 4.8 11.3 11 11.3 19.7-.1 10.8-8.5 19.5-19.4 19.5zm31-76.2c-5.2 0-8.4-1.3-12.9-3.9-71.2-42.5-198.5-52.7-280.9-29.7-3.6 1-8.1 2.6-12.9 2.6-13.2 0-23.3-10.3-23.3-23.6 0-13.6 8.4-21.3 17.4-23.9 35.2-10.3 74.6-15.2 117.5-15.2 73 0 149.5 15.2 205.4 47.8 7.8 4.5 12.9 10.7 12.9 22.6 0 13.6-11 23.3-23.2 23.3z"/>
+        </svg>
+        <span class="sidebar__logo-wordmark">Spotify</span>
+      </a>
+    </div>
 
-    <!-- Primary Navigation -->
+    <!-- Primary Nav: Home, Search -->
     <nav class="sidebar__nav" aria-label="Primary">
-      <ul class="sidebar__nav-list" role="list">
-        <li class="sidebar__nav-item">
-          <a href="#" class="sidebar__nav-link sidebar__nav-link--active" aria-current="page">
-            <i class="fas fa-house"></i>
-            <span>Home</span>
+      <ul>
+        <li>
+          <a href="#" class="sidebar__nav-item sidebar__nav-item--active" aria-current="page">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"/></svg>
+            Home
           </a>
         </li>
-        <li class="sidebar__nav-item">
-          <a href="#" class="sidebar__nav-link">
-            <i class="fas fa-magnifying-glass"></i>
-            <span>Search</span>
-          </a>
-        </li>
-        <li class="sidebar__nav-item">
-          <a href="#" class="sidebar__nav-link">
-            <i class="fas fa-book-open"></i>
-            <span>Your Library</span>
+        <li>
+          <a href="#" class="sidebar__nav-item" aria-label="Search for music">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.533 1.279c-5.18 0-9.407 4.927-8.917 10.237.404 4.298 3.498 7.773 7.618 8.61 3.26.66 6.37-.559 8.371-3.08l3.211 3.211a1 1 0 1 0 1.414-1.414l-3.182-3.182a8.75 8.75 0 0 0-.2-10.927C17.34 2.838 14.063 1.279 10.534 1.279zm-6.91 9.798c-.38-4.031 2.716-7.798 6.91-7.798 3.09 0 5.82 1.87 7.082 4.773.86 1.98.884 4.174.028 6.153-.006.015-.012.03-.017.047-1.032 2.318-3.002 3.836-5.318 4.14-3.686.481-7.137-1.978-7.685-7.315z"/></svg>
+            Search
           </a>
         </li>
       </ul>
@@ -63,367 +46,715 @@
 
     <div class="sidebar__divider" role="separator"></div>
 
-    <!-- Playlists Section -->
-    <section class="sidebar__playlists" aria-label="Your playlists">
-      <div class="sidebar__playlists-header">
-        <h2 class="sidebar__playlists-title">Playlists</h2>
-        <button class="sidebar__create-btn" aria-label="Create new playlist">
-          <i class="fas fa-plus"></i>
-          <span>New</span>
+    <!-- Library + Playlists -->
+    <div class="sidebar__library" role="region" aria-label="Your Library">
+      <div class="sidebar__library-header">
+        <a href="#" class="sidebar__library-title" aria-label="Your Library">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1.5.866l7-4.33a1 1 0 0 0 0-1.732l-7-10.67zM7 2a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H7z"/></svg>
+          Your Library
+        </a>
+        <button class="sidebar__library-add" aria-label="Create playlist or folder">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z"/></svg>
         </button>
       </div>
 
-      <ul class="sidebar__playlist-list" role="list">
-        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Chill Vibes 🌊">
-          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl1/80/80" alt="Chill Vibes playlist cover" loading="lazy">
-          <div class="sidebar__playlist-info">
-            <p class="sidebar__playlist-name">Chill Vibes 🌊</p>
-            <p class="sidebar__playlist-meta">24 songs</p>
-          </div>
+      <!-- Create Playlist Promo -->
+      <div class="sidebar__create-playlist">
+        <p class="sidebar__create-playlist-heading">Create your first playlist</p>
+        <p class="sidebar__create-playlist-desc">It's easy, we'll help you.</p>
+        <button class="btn--pill btn--pill-sm" aria-label="Create playlist">Create playlist</button>
+      </div>
+
+      <!-- Playlist Items -->
+      <ul class="playlist-list" aria-label="Your playlists">
+
+        <!-- Liked Songs -->
+        <li>
+          <a href="#" class="playlist-list__item playlist-list__item--active" aria-label="Liked Songs playlist">
+            <div class="playlist-list__thumb playlist-list__thumb--liked" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+            </div>
+            <div class="playlist-list__meta">
+              <p class="playlist-list__name">Liked Songs</p>
+              <p class="playlist-list__owner">Playlist · 214 songs</p>
+            </div>
+          </a>
         </li>
-        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Late Night Drive">
-          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl2/80/80" alt="Late Night Drive playlist cover" loading="lazy">
-          <div class="sidebar__playlist-info">
-            <p class="sidebar__playlist-name">Late Night Drive</p>
-            <p class="sidebar__playlist-meta">18 songs</p>
-          </div>
+
+        <!-- Playlist: Midnight Vibes -->
+        <li>
+          <a href="#" class="playlist-list__item" aria-label="Playlist: Midnight Vibes">
+            <div class="playlist-list__thumb">
+              <img src="https://images.unsplash.com/photo-1614680376408-81e91ffe3db7?w=80&q=70" alt="Midnight Vibes playlist cover" loading="lazy" />
+            </div>
+            <div class="playlist-list__meta">
+              <p class="playlist-list__name">Midnight Vibes</p>
+              <p class="playlist-list__owner">Playlist · You</p>
+            </div>
+          </a>
         </li>
-        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Workout Energy">
-          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl3/80/80" alt="Workout Energy playlist cover" loading="lazy">
-          <div class="sidebar__playlist-info">
-            <p class="sidebar__playlist-name">Workout Energy</p>
-            <p class="sidebar__playlist-meta">36 songs</p>
-          </div>
+
+        <!-- Playlist: Workout Beast Mode -->
+        <li>
+          <a href="#" class="playlist-list__item" aria-label="Playlist: Workout Beast Mode">
+            <div class="playlist-list__thumb">
+              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=80&q=70" alt="Workout Beast Mode playlist cover" loading="lazy" />
+            </div>
+            <div class="playlist-list__meta">
+              <p class="playlist-list__name">Workout Beast Mode</p>
+              <p class="playlist-list__owner">Playlist · You</p>
+            </div>
+          </a>
         </li>
-        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Focus Mode">
-          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl4/80/80" alt="Focus Mode playlist cover" loading="lazy">
-          <div class="sidebar__playlist-info">
-            <p class="sidebar__playlist-name">Focus Mode</p>
-            <p class="sidebar__playlist-meta">42 songs</p>
-          </div>
+
+        <!-- Playlist: Lofi Study Session -->
+        <li>
+          <a href="#" class="playlist-list__item" aria-label="Playlist: Lofi Study Session">
+            <div class="playlist-list__thumb">
+              <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=80&q=70" alt="Lofi Study Session playlist cover" loading="lazy" />
+            </div>
+            <div class="playlist-list__meta">
+              <p class="playlist-list__name">Lofi Study Session</p>
+              <p class="playlist-list__owner">Playlist · You</p>
+            </div>
+          </a>
         </li>
-        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Throwback Hits">
-          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl5/80/80" alt="Throwback Hits playlist cover" loading="lazy">
-          <div class="sidebar__playlist-info">
-            <p class="sidebar__playlist-name">Throwback Hits</p>
-            <p class="sidebar__playlist-meta">53 songs</p>
-          </div>
+
+        <!-- Playlist: 2000s Throwback -->
+        <li>
+          <a href="#" class="playlist-list__item" aria-label="Playlist: 2000s Throwback">
+            <div class="playlist-list__thumb">
+              <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=80&q=70" alt="2000s Throwback playlist cover" loading="lazy" />
+            </div>
+            <div class="playlist-list__meta">
+              <p class="playlist-list__name">2000s Throwback</p>
+              <p class="playlist-list__owner">Playlist · You</p>
+            </div>
+          </a>
         </li>
-        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Acoustic Mornings">
-          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl6/80/80" alt="Acoustic Mornings playlist cover" loading="lazy">
-          <div class="sidebar__playlist-info">
-            <p class="sidebar__playlist-name">Acoustic Mornings</p>
-            <p class="sidebar__playlist-meta">19 songs</p>
-          </div>
+
+        <!-- Playlist: Sunday Morning Jazz -->
+        <li>
+          <a href="#" class="playlist-list__item" aria-label="Playlist: Sunday Morning Jazz">
+            <div class="playlist-list__thumb">
+              <img src="https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=80&q=70" alt="Sunday Morning Jazz playlist cover" loading="lazy" />
+            </div>
+            <div class="playlist-list__meta">
+              <p class="playlist-list__name">Sunday Morning Jazz</p>
+              <p class="playlist-list__owner">Playlist · You</p>
+            </div>
+          </a>
         </li>
+
+        <!-- Playlist: Road Trip Anthems -->
+        <li>
+          <a href="#" class="playlist-list__item" aria-label="Playlist: Road Trip Anthems">
+            <div class="playlist-list__thumb">
+              <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=80&q=70" alt="Road Trip Anthems playlist cover" loading="lazy" />
+            </div>
+            <div class="playlist-list__meta">
+              <p class="playlist-list__name">Road Trip Anthems</p>
+              <p class="playlist-list__owner">Playlist · You</p>
+            </div>
+          </a>
+        </li>
+
       </ul>
-    </section>
+    </div><!-- /sidebar__library -->
 
-  </aside>
+  </aside><!-- /sidebar -->
 
-  <!-- Mobile overlay -->
-  <div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('sidebar--open')" aria-hidden="true"></div>
 
-  <!-- ============================================
+  <!-- ============================================================
        MAIN CONTENT AREA
-       ============================================ -->
-  <main class="main" id="main-content">
+  ============================================================ -->
+  <main class="main" role="main" aria-label="Content">
 
-    <!-- ---- Top Bar ---- -->
-    <header class="topbar">
-      <div class="topbar__nav">
-        <button class="topbar__nav-btn" aria-label="Go back">
-          <i class="fas fa-chevron-left"></i>
+    <!-- Top Navigation Bar -->
+    <header class="topbar" role="banner">
+      <div class="topbar__nav" aria-label="History navigation">
+        <button class="topbar__btn" aria-label="Go back" disabled>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.957 2.793a1 1 0 0 1 0 1.414L8.164 12l7.793 7.793a1 1 0 1 1-1.414 1.414L5.336 12l9.207-9.207a1 1 0 0 1 1.414 0z"/></svg>
         </button>
-        <button class="topbar__nav-btn" aria-label="Go forward">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-
-      <div class="topbar__search">
-        <i class="fas fa-search topbar__search-icon" aria-hidden="true"></i>
-        <input
-          type="search"
-          class="topbar__search-input"
-          placeholder="What do you want to listen to?"
-          aria-label="Search songs, artists, or albums"
-        >
-      </div>
-
-      <div class="topbar__profile">
-        <button class="topbar__notification-btn" aria-label="Notifications">
-          <i class="fas fa-bell"></i>
-          <span class="topbar__notification-badge" aria-label="New notifications"></span>
-        </button>
-        <button class="topbar__user-btn" aria-label="User menu">
-          <img class="topbar__avatar" src="https://picsum.photos/seed/avatar/60/60" alt="User avatar">
-          <span class="topbar__username">Alex M.</span>
-          <i class="fas fa-caret-down" aria-hidden="true"></i>
+        <button class="topbar__btn" aria-label="Go forward">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.043 2.793a1 1 0 0 0 0 1.414L15.836 12l-7.793 7.793a1 1 0 1 0 1.414 1.414L18.664 12 9.457 2.793a1 1 0 0 0-1.414 0z"/></svg>
         </button>
       </div>
-    </header>
 
-    <!-- ---- Content Sections ---- -->
-    <div class="content">
+      <div class="topbar__actions">
+        <button class="btn--pill btn--pill-sm" aria-label="Install Spotify app">Install App</button>
+        <!-- User Profile -->
+        <button class="topbar__profile" aria-label="User profile menu — Alex Rivera" aria-haspopup="menu">
+          <div class="topbar__avatar">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=56&q=70" alt="Profile photo of Alex Rivera" loading="lazy" />
+          </div>
+          <span class="topbar__username">Alex Rivera</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 15.0004 7.5-7.5-1.06-1.06-6.44 6.44-6.44-6.44L4.5 7.5004l7.5 7.5z"/></svg>
+        </button>
+      </div>
+    </header><!-- /topbar -->
 
-      <!-- ---- Recently Played Section ---- -->
+    <!-- Scrollable Content Feed -->
+    <div class="content-feed" role="feed" aria-label="Music content">
+
+      <h1 class="content-feed__greeting">Good evening</h1>
+
+      <!-- Quick Play Grid (Recently Played shortcuts) -->
+      <section class="section" aria-labelledby="quick-play-heading">
+        <div class="quick-play-grid" role="list">
+
+          <!-- Quick Card 1 -->
+          <article class="quick-play-card" role="listitem" aria-label="Play Liked Songs">
+            <div class="quick-play-card__thumb">
+              <img src="https://images.unsplash.com/photo-1614680376408-81e91ffe3db7?w=112&q=70" alt="Liked Songs playlist cover" loading="lazy" />
+            </div>
+            <span class="quick-play-card__title">Liked Songs</span>
+            <button class="quick-play-card__play" aria-label="Play Liked Songs">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+            </button>
+          </article>
+
+          <!-- Quick Card 2 -->
+          <article class="quick-play-card" role="listitem" aria-label="Play Daily Mix 1">
+            <div class="quick-play-card__thumb">
+              <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=112&q=70" alt="Daily Mix 1 cover" loading="lazy" />
+            </div>
+            <span class="quick-play-card__title">Daily Mix 1</span>
+            <button class="quick-play-card__play" aria-label="Play Daily Mix 1">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+            </button>
+          </article>
+
+          <!-- Quick Card 3 -->
+          <article class="quick-play-card" role="listitem" aria-label="Play Midnight Vibes">
+            <div class="quick-play-card__thumb">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=112&q=70" alt="Midnight Vibes playlist cover" loading="lazy" />
+            </div>
+            <span class="quick-play-card__title">Midnight Vibes</span>
+            <button class="quick-play-card__play" aria-label="Play Midnight Vibes">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+            </button>
+          </article>
+
+          <!-- Quick Card 4 -->
+          <article class="quick-play-card" role="listitem" aria-label="Play Lofi Study Session">
+            <div class="quick-play-card__thumb">
+              <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=112&q=70" alt="Lofi Study Session cover" loading="lazy" />
+            </div>
+            <span class="quick-play-card__title">Lofi Study Session</span>
+            <button class="quick-play-card__play" aria-label="Play Lofi Study Session">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+            </button>
+          </article>
+
+          <!-- Quick Card 5 -->
+          <article class="quick-play-card" role="listitem" aria-label="Play Road Trip Anthems">
+            <div class="quick-play-card__thumb">
+              <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=112&q=70" alt="Road Trip Anthems cover" loading="lazy" />
+            </div>
+            <span class="quick-play-card__title">Road Trip Anthems</span>
+            <button class="quick-play-card__play" aria-label="Play Road Trip Anthems">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+            </button>
+          </article>
+
+          <!-- Quick Card 6 -->
+          <article class="quick-play-card" role="listitem" aria-label="Play Workout Beast Mode">
+            <div class="quick-play-card__thumb">
+              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=112&q=70" alt="Workout Beast Mode cover" loading="lazy" />
+            </div>
+            <span class="quick-play-card__title">Workout Beast Mode</span>
+            <button class="quick-play-card__play" aria-label="Play Workout Beast Mode">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+            </button>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ---- RECENTLY PLAYED ---- -->
       <section class="section" aria-labelledby="recently-played-heading">
-        <div class="section__header">
+        <header class="section__header">
           <h2 class="section__title" id="recently-played-heading">Recently Played</h2>
-          <a href="#" class="section__link">Show all</a>
-        </div>
-
+          <a href="#" class="section__see-all" aria-label="Show all recently played">Show all</a>
+        </header>
         <div class="card-grid" role="list">
 
-          <!-- Song Card 1 -->
-          <article class="song-card" role="listitem" tabindex="0" aria-label="Midnight Rain by Aurora Skies">
-            <div class="song-card__image-wrapper">
-              <img
-                class="song-card__image"
-                src="https://picsum.photos/seed/song1/300/300"
-                alt="Album artwork for Midnight Rain"
-                loading="lazy"
-              >
-              <button class="song-card__play-btn" aria-label="Play Midnight Rain">
-                <i class="fas fa-play"></i>
+          <!-- Card 1: Blinding Lights -->
+          <article class="music-card" role="listitem" aria-label="Blinding Lights by The Weeknd">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1593697972672-b1c1902219c4?w=300&q=75" alt="Blinding Lights album art — The Weeknd, After Hours" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Blinding Lights by The Weeknd">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
               </button>
             </div>
-            <h3 class="song-card__title">Midnight Rain</h3>
-            <p class="song-card__artist">Aurora Skies</p>
+            <p class="music-card__title">Blinding Lights</p>
+            <p class="music-card__desc">The Weeknd · After Hours</p>
           </article>
 
-          <!-- Song Card 2 -->
-          <article class="song-card" role="listitem" tabindex="0" aria-label="Golden Hour by Luna Rivers">
-            <div class="song-card__image-wrapper">
-              <img
-                class="song-card__image"
-                src="https://picsum.photos/seed/song2/300/300"
-                alt="Album artwork for Golden Hour"
-                loading="lazy"
-              >
-              <button class="song-card__play-btn" aria-label="Play Golden Hour">
-                <i class="fas fa-play"></i>
+          <!-- Card 2: Shape of You -->
+          <article class="music-card" role="listitem" aria-label="Shape of You by Ed Sheeran">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&q=75" alt="Shape of You album art — Ed Sheeran, ÷" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Shape of You by Ed Sheeran">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
               </button>
             </div>
-            <h3 class="song-card__title">Golden Hour</h3>
-            <p class="song-card__artist">Luna Rivers</p>
+            <p class="music-card__title">Shape of You</p>
+            <p class="music-card__desc">Ed Sheeran · ÷ (Divide)</p>
           </article>
 
-          <!-- Song Card 3 -->
-          <article class="song-card" role="listitem" tabindex="0" aria-label="Electric Dreams by Neon Pulse">
-            <div class="song-card__image-wrapper">
-              <img
-                class="song-card__image"
-                src="https://picsum.photos/seed/song3/300/300"
-                alt="Album artwork for Electric Dreams"
-                loading="lazy"
-              >
-              <button class="song-card__play-btn" aria-label="Play Electric Dreams">
-                <i class="fas fa-play"></i>
+          <!-- Card 3: Levitating -->
+          <article class="music-card" role="listitem" aria-label="Levitating by Dua Lipa">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=300&q=75" alt="Levitating album art — Dua Lipa, Future Nostalgia" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Levitating by Dua Lipa">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
               </button>
             </div>
-            <h3 class="song-card__title">Electric Dreams</h3>
-            <p class="song-card__artist">Neon Pulse</p>
+            <p class="music-card__title">Levitating</p>
+            <p class="music-card__desc">Dua Lipa · Future Nostalgia</p>
           </article>
 
-          <!-- Song Card 4 -->
-          <article class="song-card" role="listitem" tabindex="0" aria-label="Ocean Waves by Coral Reef">
-            <div class="song-card__image-wrapper">
-              <img
-                class="song-card__image"
-                src="https://picsum.photos/seed/song4/300/300"
-                alt="Album artwork for Ocean Waves"
-                loading="lazy"
-              >
-              <button class="song-card__play-btn" aria-label="Play Ocean Waves">
-                <i class="fas fa-play"></i>
+          <!-- Card 4: Anti-Hero -->
+          <article class="music-card" role="listitem" aria-label="Anti-Hero by Taylor Swift">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=300&q=75" alt="Anti-Hero album art — Taylor Swift, Midnights" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Anti-Hero by Taylor Swift">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
               </button>
             </div>
-            <h3 class="song-card__title">Ocean Waves</h3>
-            <p class="song-card__artist">Coral Reef</p>
+            <p class="music-card__title">Anti-Hero</p>
+            <p class="music-card__desc">Taylor Swift · Midnights</p>
+          </article>
+
+          <!-- Card 5: As It Was -->
+          <article class="music-card" role="listitem" aria-label="As It Was by Harry Styles">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?w=300&q=75" alt="As It Was album art — Harry Styles, Harry's House" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play As It Was by Harry Styles">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+              </button>
+            </div>
+            <p class="music-card__title">As It Was</p>
+            <p class="music-card__desc">Harry Styles · Harry's House</p>
           </article>
 
         </div>
       </section>
 
-      <!-- ---- Trending Songs Section ---- -->
+      <!-- ---- MADE FOR YOU ---- -->
+      <section class="section" aria-labelledby="made-for-you-heading">
+        <header class="section__header">
+          <h2 class="section__title" id="made-for-you-heading">Made for You</h2>
+          <a href="#" class="section__see-all" aria-label="Show all Made for You playlists">Show all</a>
+        </header>
+        <div class="card-grid" role="list">
+
+          <!-- Card: Daily Mix 1 -->
+          <article class="music-card" role="listitem" aria-label="Daily Mix 1 — Personalized playlist">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&q=75" alt="Daily Mix 1 cover art" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Daily Mix 1">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+              </button>
+            </div>
+            <p class="music-card__title">Daily Mix 1</p>
+            <p class="music-card__desc">The Weeknd, Drake, Kendrick Lamar and more</p>
+          </article>
+
+          <!-- Card: Daily Mix 2 -->
+          <article class="music-card" role="listitem" aria-label="Daily Mix 2 — Personalized playlist">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1540103711724-ebf833bde8d1?w=300&q=75" alt="Daily Mix 2 cover art" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Daily Mix 2">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+              </button>
+            </div>
+            <p class="music-card__title">Daily Mix 2</p>
+            <p class="music-card__desc">Taylor Swift, Olivia Rodrigo, Billie Eilish and more</p>
+          </article>
+
+          <!-- Card: Discover Weekly -->
+          <article class="music-card" role="listitem" aria-label="Discover Weekly — New music picks">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?w=300&q=75" alt="Discover Weekly cover art" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Discover Weekly">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+              </button>
+            </div>
+            <p class="music-card__title">Discover Weekly</p>
+            <p class="music-card__desc">Your weekly mixtape of fresh music. Enjoy new music and deep cuts picked for you.</p>
+          </article>
+
+          <!-- Card: Release Radar -->
+          <article class="music-card" role="listitem" aria-label="Release Radar — New releases">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=75" alt="Release Radar cover art" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Release Radar">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+              </button>
+            </div>
+            <p class="music-card__title">Release Radar</p>
+            <p class="music-card__desc">Catch all the latest music from artists you follow plus new picks for you.</p>
+          </article>
+
+          <!-- Card: On Repeat -->
+          <article class="music-card" role="listitem" aria-label="On Repeat — Your most played">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=300&q=75" alt="On Repeat cover art" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play On Repeat">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+              </button>
+            </div>
+            <p class="music-card__title">On Repeat</p>
+            <p class="music-card__desc">Songs you can't stop listening to right now.</p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ---- TRENDING NOW ---- -->
       <section class="section" aria-labelledby="trending-heading">
-        <div class="section__header">
-          <h2 class="section__title" id="trending-heading">Trending Songs</h2>
-          <a href="#" class="section__link">Show all</a>
-        </div>
-
+        <header class="section__header">
+          <h2 class="section__title" id="trending-heading">Trending Now</h2>
+          <a href="#" class="section__see-all" aria-label="Show all trending music">Show all</a>
+        </header>
         <div class="card-grid" role="list">
 
-          <!-- Song Card 5 -->
-          <article class="song-card" role="listitem" tabindex="0" aria-label="Supernova by Cosmic Drift">
-            <div class="song-card__image-wrapper">
-              <img
-                class="song-card__image"
-                src="https://picsum.photos/seed/song5/300/300"
-                alt="Album artwork for Supernova"
-                loading="lazy"
-              >
-              <button class="song-card__play-btn" aria-label="Play Supernova">
-                <i class="fas fa-play"></i>
+          <!-- Card: Flowers — Miley Cyrus -->
+          <article class="music-card" role="listitem" aria-label="Flowers by Miley Cyrus">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1502904550040-7534597429ae?w=300&q=75" alt="Flowers single cover — Miley Cyrus" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Flowers by Miley Cyrus">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
               </button>
             </div>
-            <h3 class="song-card__title">Supernova</h3>
-            <p class="song-card__artist">Cosmic Drift</p>
+            <p class="music-card__title">Flowers</p>
+            <p class="music-card__desc">Miley Cyrus · Endless Summer Vacation</p>
           </article>
 
-          <!-- Song Card 6 -->
-          <article class="song-card" role="listitem" tabindex="0" aria-label="Velvet Sky by Ember & Ash">
-            <div class="song-card__image-wrapper">
-              <img
-                class="song-card__image"
-                src="https://picsum.photos/seed/song6/300/300"
-                alt="Album artwork for Velvet Sky"
-                loading="lazy"
-              >
-              <button class="song-card__play-btn" aria-label="Play Velvet Sky">
-                <i class="fas fa-play"></i>
+          <!-- Card: Unholy — Sam Smith -->
+          <article class="music-card" role="listitem" aria-label="Unholy by Sam Smith ft. Kim Petras">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1583153218567-49f83c5b2d3e?w=300&q=75" alt="Unholy single cover — Sam Smith" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Unholy by Sam Smith">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
               </button>
             </div>
-            <h3 class="song-card__title">Velvet Sky</h3>
-            <p class="song-card__artist">Ember &amp; Ash</p>
+            <p class="music-card__title">Unholy</p>
+            <p class="music-card__desc">Sam Smith ft. Kim Petras</p>
           </article>
 
-          <!-- Song Card 7 -->
-          <article class="song-card" role="listitem" tabindex="0" aria-label="Faded Memories by Ivory Keys">
-            <div class="song-card__image-wrapper">
-              <img
-                class="song-card__image"
-                src="https://picsum.photos/seed/song7/300/300"
-                alt="Album artwork for Faded Memories"
-                loading="lazy"
-              >
-              <button class="song-card__play-btn" aria-label="Play Faded Memories">
-                <i class="fas fa-play"></i>
+          <!-- Card: Seven — Jung Kook -->
+          <article class="music-card" role="listitem" aria-label="Seven by Jung Kook ft. Latto">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=300&q=75" alt="Seven single cover — Jung Kook" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Seven by Jung Kook">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
               </button>
             </div>
-            <h3 class="song-card__title">Faded Memories</h3>
-            <p class="song-card__artist">Ivory Keys</p>
+            <p class="music-card__title">Seven (feat. Latto)</p>
+            <p class="music-card__desc">Jung Kook · Golden</p>
           </article>
 
-          <!-- Song Card 8 -->
-          <article class="song-card" role="listitem" tabindex="0" aria-label="Wildfire by Phoenix Blaze">
-            <div class="song-card__image-wrapper">
-              <img
-                class="song-card__image"
-                src="https://picsum.photos/seed/song8/300/300"
-                alt="Album artwork for Wildfire"
-                loading="lazy"
-              >
-              <button class="song-card__play-btn" aria-label="Play Wildfire">
-                <i class="fas fa-play"></i>
+          <!-- Card: Kill Bill — SZA -->
+          <article class="music-card" role="listitem" aria-label="Kill Bill by SZA">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1504898770365-14faca6a7320?w=300&q=75" alt="Kill Bill album art — SZA, SOS" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Kill Bill by SZA">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
               </button>
             </div>
-            <h3 class="song-card__title">Wildfire</h3>
-            <p class="song-card__artist">Phoenix Blaze</p>
+            <p class="music-card__title">Kill Bill</p>
+            <p class="music-card__desc">SZA · SOS</p>
+          </article>
+
+          <!-- Card: Calm Down — Rema -->
+          <article class="music-card" role="listitem" aria-label="Calm Down by Rema and Selena Gomez">
+            <div class="music-card__thumb-wrap">
+              <div class="music-card__thumb">
+                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300&q=75" alt="Calm Down single cover — Rema" loading="lazy" />
+              </div>
+              <button class="music-card__play" aria-label="Play Calm Down by Rema and Selena Gomez">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="black" aria-hidden="true"><path d="M7.05 3.606l13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"/></svg>
+              </button>
+            </div>
+            <p class="music-card__title">Calm Down</p>
+            <p class="music-card__desc">Rema, Selena Gomez · Rave &amp; Roses</p>
           </article>
 
         </div>
       </section>
 
-    </div>
-  </main>
+    </div><!-- /content-feed -->
 
-  <!-- ============================================
-       MUSIC PLAYER — Fixed at Bottom
-       ============================================ -->
-  <footer class="player" role="contentinfo" aria-label="Music player controls">
+  </main><!-- /main -->
 
-    <!-- Now Playing Info -->
-    <div class="player__song">
-      <img
-        class="player__song-image"
-        src="https://picsum.photos/seed/song1/120/120"
-        alt="Currently playing: Midnight Rain album artwork"
-      >
-      <div class="player__song-info">
-        <p class="player__song-title">Midnight Rain</p>
-        <p class="player__song-artist">Aurora Skies</p>
-      </div>
-      <div class="player__song-actions">
-        <button class="player__icon-btn player__icon-btn--active" aria-label="Remove from Liked Songs" aria-pressed="true">
-          <i class="fas fa-heart"></i>
-        </button>
-      </div>
+
+  <!-- ============================================================
+       RIGHT NOW-PLAYING PANEL
+  ============================================================ -->
+  <aside class="panel" aria-label="Now Playing and Queue">
+
+    <div class="panel__header">
+      <nav class="panel__tabs" aria-label="Panel tabs">
+        <button class="panel__tab panel__tab--active" role="tab" aria-selected="true" aria-controls="panel-now-playing">Now playing</button>
+        <button class="panel__tab" role="tab" aria-selected="false" aria-controls="panel-queue">Queue</button>
+        <button class="panel__tab" role="tab" aria-selected="false" aria-controls="panel-credits">Credits</button>
+      </nav>
     </div>
 
-    <!-- Playback Controls -->
-    <div class="player__controls">
+    <div class="panel__body" id="panel-now-playing" role="tabpanel">
+
+      <!-- Now Playing Card -->
+      <div class="now-playing-card">
+
+        <!-- Album Art -->
+        <div class="now-playing-card__thumb">
+          <img src="https://images.unsplash.com/photo-1593697972672-b1c1902219c4?w=400&q=80" alt="Album art for Blinding Lights by The Weeknd" loading="eager" />
+        </div>
+
+        <!-- Song Info + Like -->
+        <div class="now-playing-card__info">
+          <div class="now-playing-card__meta">
+            <p class="now-playing-card__song">Blinding Lights</p>
+            <p class="now-playing-card__artist">
+              <a href="#" aria-label="Go to The Weeknd artist page">The Weeknd</a>
+            </p>
+          </div>
+          <button class="now-playing-card__like" aria-label="Add Blinding Lights to your Liked Songs" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Up Next Queue -->
+      <div class="queue-section" aria-labelledby="queue-label">
+        <p class="queue-section__label" id="queue-label">Next in queue</p>
+
+        <ul aria-label="Upcoming tracks">
+
+          <li>
+            <div class="queue-item" role="listitem">
+              <div class="queue-item__thumb">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=72&q=70" alt="Shape of You album art" loading="lazy" />
+              </div>
+              <div class="queue-item__meta">
+                <p class="queue-item__song">Shape of You</p>
+                <p class="queue-item__artist">Ed Sheeran</p>
+              </div>
+              <span class="queue-item__duration" aria-label="Duration 3 minutes 53 seconds">3:53</span>
+            </div>
+          </li>
+
+          <li>
+            <div class="queue-item" role="listitem">
+              <div class="queue-item__thumb">
+                <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=72&q=70" alt="Levitating album art" loading="lazy" />
+              </div>
+              <div class="queue-item__meta">
+                <p class="queue-item__song">Levitating</p>
+                <p class="queue-item__artist">Dua Lipa</p>
+              </div>
+              <span class="queue-item__duration" aria-label="Duration 3 minutes 23 seconds">3:23</span>
+            </div>
+          </li>
+
+          <li>
+            <div class="queue-item" role="listitem">
+              <div class="queue-item__thumb">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=72&q=70" alt="Anti-Hero album art" loading="lazy" />
+              </div>
+              <div class="queue-item__meta">
+                <p class="queue-item__song">Anti-Hero</p>
+                <p class="queue-item__artist">Taylor Swift</p>
+              </div>
+              <span class="queue-item__duration" aria-label="Duration 3 minutes 20 seconds">3:20</span>
+            </div>
+          </li>
+
+          <li>
+            <div class="queue-item" role="listitem">
+              <div class="queue-item__thumb">
+                <img src="https://images.unsplash.com/photo-1502904550040-7534597429ae?w=72&q=70" alt="Flowers album art" loading="lazy" />
+              </div>
+              <div class="queue-item__meta">
+                <p class="queue-item__song">Flowers</p>
+                <p class="queue-item__artist">Miley Cyrus</p>
+              </div>
+              <span class="queue-item__duration" aria-label="Duration 3 minutes 20 seconds">3:20</span>
+            </div>
+          </li>
+
+          <li>
+            <div class="queue-item" role="listitem">
+              <div class="queue-item__thumb">
+                <img src="https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?w=72&q=70" alt="As It Was album art" loading="lazy" />
+              </div>
+              <div class="queue-item__meta">
+                <p class="queue-item__song">As It Was</p>
+                <p class="queue-item__artist">Harry Styles</p>
+              </div>
+              <span class="queue-item__duration" aria-label="Duration 2 minutes 47 seconds">2:47</span>
+            </div>
+          </li>
+
+        </ul>
+      </div><!-- /queue-section -->
+
+    </div><!-- /panel__body -->
+
+  </aside><!-- /panel -->
+
+
+  <!-- ============================================================
+       BOTTOM MUSIC PLAYER
+  ============================================================ -->
+  <footer class="player" role="region" aria-label="Music player">
+
+    <!-- Player Left — Current Track Info -->
+    <div class="player__current" aria-label="Currently playing">
+      <div class="player__thumb" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1593697972672-b1c1902219c4?w=112&q=80" alt="Now playing: Blinding Lights by The Weeknd" loading="eager" />
+      </div>
+      <div class="player__meta">
+        <p class="player__song"><a href="#" aria-label="Open Blinding Lights track page">Blinding Lights</a></p>
+        <p class="player__artist"><a href="#" aria-label="Open The Weeknd artist page">The Weeknd</a></p>
+      </div>
+      <button class="player__like" aria-label="Save Blinding Lights to your Liked Songs" aria-pressed="true">
+        <!-- Filled heart = saved -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#1db954" aria-hidden="true"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+      </button>
+    </div>
+
+    <!-- Player Center — Playback Controls + Progress -->
+    <div class="player__controls" aria-label="Playback controls">
       <div class="player__buttons">
-        <button class="player__control-btn" aria-label="Toggle shuffle">
-          <i class="fas fa-shuffle"></i>
+
+        <!-- Shuffle -->
+        <button class="player__btn player__btn--active" aria-label="Shuffle is on — toggle shuffle" aria-pressed="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.676 3.998H21a1 1 0 0 1 1 1v3.5a1 1 0 1 1-2 0V7.013l-6.507 6.506-1.414-1.414L18.587 5.5H17.67a1 1 0 0 1 0-2l.006.498zm.005 10.993 1.914 1.914a1 1 0 1 1-1.414 1.414l-3.206-3.207-1.497 1.498 3.206 3.206a1 1 0 1 1-1.414 1.414l-3.914-3.914 1.504-1.504-1.414-1.414-1.504 1.504L7.037 12.5 5.15 14.388A4.978 4.978 0 0 1 2 18.5V21a1 1 0 1 1-2 0v-2.5a6.978 6.978 0 0 1 4.46-6.506L6.914 9.54l1.415 1.415.5-.5L6.914 9.04 9.207 6.75l1.414 1.414L8.621 10.2l3.207 3.207 1.497-1.498-3.207-3.207a1 1 0 0 1 0-1.415l3.207-3.207A1 1 0 1 1 14.74 5.5l-2.5 2.5 1.414 1.414 2.5-2.5a1 1 0 0 1 1.414 0l.113.078z"/></svg>
         </button>
-        <button class="player__control-btn" aria-label="Previous track">
-          <i class="fas fa-backward-step"></i>
+
+        <!-- Previous -->
+        <button class="player__btn" aria-label="Skip to previous track">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.7 3a1 1 0 0 0-1 1v16a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1zM18.496 3.077a1 1 0 0 1 .504.863V20a1 1 0 0 1-1.5.865l-12-7.98a1 1 0 0 1 0-1.73l12-8a1 1 0 0 1 .996-.078z"/></svg>
         </button>
-        <button class="player__control-btn player__control-btn--play" aria-label="Play" aria-pressed="false">
-          <i class="fas fa-play"></i>
+
+        <!-- Play/Pause -->
+        <button class="player__btn player__btn--play" aria-label="Pause Blinding Lights" aria-pressed="true">
+          <!-- Pause icon (currently playing) -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.7 3a1 1 0 0 0-1 1v16a1 1 0 0 0 2 0V4a1 1 0 0 0-1-1zm12.6 0a1 1 0 0 0-1 1v16a1 1 0 0 0 2 0V4a1 1 0 0 0-1-1z"/></svg>
         </button>
-        <button class="player__control-btn" aria-label="Next track">
-          <i class="fas fa-forward-step"></i>
+
+        <!-- Next -->
+        <button class="player__btn" aria-label="Skip to next track">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.3 21a1 1 0 0 0 1-1V4a1 1 0 1 0-2 0v16a1 1 0 0 0 1 1zM5.504 3.077a1 1 0 0 0-.504.863V20a1 1 0 0 0 1.5.865l12-7.98a1 1 0 0 0 0-1.73l-12-8a1 1 0 0 0-.996-.078z"/></svg>
         </button>
-        <button class="player__control-btn" aria-label="Toggle repeat">
-          <i class="fas fa-repeat"></i>
+
+        <!-- Repeat -->
+        <button class="player__btn" aria-label="Enable repeat" aria-pressed="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 13.2a1 1 0 0 1 1-1h17.2l-3.6-3.6a1 1 0 1 1 1.414-1.414l5.307 5.307a1 1 0 0 1 0 1.414l-5.307 5.307a1 1 0 0 1-1.414-1.414l3.6-3.6H1a1 1 0 0 1-1-1zm24-2.4a1 1 0 0 0-1 1H5.8l3.6 3.6a1 1 0 0 0 1.414-1.414L5.507 8.679a1 1 0 0 0-1.414 0L-1.214 13.986a1 1 0 1 0 1.414 1.414L3.8 11.8H23a1 1 0 0 0 1-1z"/></svg>
         </button>
+
       </div>
 
-      <div class="player__progress">
-        <span class="player__time" aria-label="Elapsed time">1:23</span>
-        <label for="progress-bar" class="visually-hidden">Song progress</label>
+      <!-- Progress Bar -->
+      <div class="player__progress" aria-label="Song progress">
+        <span class="player__time" aria-label="Current time: 1 minute 12 seconds">1:12</span>
         <input
+          class="progress-bar"
           type="range"
-          id="progress-bar"
-          class="player__progress-bar"
           min="0"
-          max="100"
-          value="35"
-          aria-label="Song progress"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          aria-valuenow="35"
-          aria-valuetext="1 minute 23 seconds of 3 minutes 45 seconds"
-        >
-        <span class="player__time" aria-label="Total duration">3:45</span>
-      </div>
-    </div>
-
-    <!-- Volume & Extra Controls -->
-    <div class="player__extra">
-      <button class="player__icon-btn" aria-label="Now playing view">
-        <i class="fas fa-bars-staggered"></i>
-      </button>
-      <button class="player__icon-btn" aria-label="Connect to a device">
-        <i class="fas fa-desktop"></i>
-      </button>
-      <div class="player__volume">
-        <button class="player__icon-btn" aria-label="Mute">
-          <i class="fas fa-volume-high"></i>
-        </button>
-        <label for="volume-slider" class="visually-hidden">Volume</label>
-        <input
-          type="range"
-          id="volume-slider"
-          class="player__volume-slider"
-          min="0"
-          max="100"
+          max="200"
           value="72"
-          aria-label="Volume"
+          aria-label="Seek song position"
           aria-valuemin="0"
-          aria-valuemax="100"
+          aria-valuemax="200"
           aria-valuenow="72"
-        >
+          aria-valuetext="1 minute 12 seconds of 3 minutes 20 seconds"
+        />
+        <span class="player__time player__time--right" aria-label="Total duration: 3 minutes 20 seconds">3:20</span>
       </div>
-      <button class="player__icon-btn" aria-label="Full screen">
-        <i class="fas fa-up-right-and-down-left-from-center"></i>
-      </button>
     </div>
 
-  </footer>
-<script src="spotify.js" defer></script>
+    <!-- Player Right — Volume & Extras -->
+    <div class="player__extra" aria-label="Player controls — volume and display options">
+
+      <!-- Now Playing View Toggle -->
+      <button class="player__extra-btn player__extra-btn--active" aria-label="Now Playing view is on" aria-pressed="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.822 2.638A.75.75 0 0 0 9 3.378v17.244a.75.75 0 0 0 .822.74l11.247-1.502A.75.75 0 0 0 21.75 19.12V4.88a.75.75 0 0 0-.681-.74L9.822 2.638zM2.25 9.75A.75.75 0 0 1 3 9h3.75v1.5H3a.75.75 0 0 1-.75-.75zM3 13.5h3.75V15H3a.75.75 0 0 1 0-1.5z"/></svg>
+      </button>
+
+      <!-- Queue -->
+      <button class="player__extra-btn" aria-label="Open queue">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 3.75a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2h-6a1 1 0 0 1-1-1zM15 12a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2h-6a1 1 0 0 1-1-1zM15 20.25a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2h-6a1 1 0 0 1-1-1zM2 5.75a1 1 0 0 1 1-1h8a1 1 0 0 1 0 2H3a1 1 0 0 1-1-1zM3 11h8a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2zM3 18.25a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2H3z"/></svg>
+      </button>
+
+      <!-- Devices -->
+      <button class="player__extra-btn" aria-label="Connect to a device">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 17a3 3 0 1 1 6 0 3 3 0 0 1-6 0zM6 12.382A7.001 7.001 0 0 0 6 26v-2a5 5 0 1 1 0-10v-1.618z"/></svg>
+      </button>
+
+      <!-- Volume Icon -->
+      <button class="player__extra-btn" aria-label="Mute volume" aria-pressed="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 3.562v2.06a7.5 7.5 0 0 1 0 12.756v2.06A9.5 9.5 0 0 0 13 3.562zm-4 1.94L5.001 9H2v6h3.001L9 18.562V5.502zM11 7.06v9.88A5.5 5.5 0 0 0 11 7.06z"/></svg>
+      </button>
+
+      <!-- Volume Slider -->
+      <input
+        class="volume-bar"
+        type="range"
+        min="0"
+        max="100"
+        value="70"
+        aria-label="Volume"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="70"
+        aria-valuetext="Volume 70%"
+      />
+
+      <!-- Full Screen -->
+      <button class="player__extra-btn" aria-label="Open full screen">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.53 9.47 3.06 6l2.69-2.69A1 1 0 0 0 5.75 1.5H1a1 1 0 0 0-1 1v4.75a1 1 0 0 0 1.707.707L3.06 6.586l3.47 3.47a1 1 0 1 0 1.414-1.414L6.531 7.228zm10.94 0L21 6l-2.69-2.69A1 1 0 0 1 18.31 1.5H23a1 1 0 0 1 1 1v4.75a1 1 0 0 1-1.707.707L20.94 6.586l-3.47 3.47a1 1 0 1 1-1.414-1.414zm-10.94 5.06L3 18l2.69 2.69A1 1 0 0 1 5.69 22.5H1a1 1 0 0 1-1-1V16.75a1 1 0 0 1 1.707-.707L3.06 17.414l3.47-3.47a1 1 0 1 1 1.414 1.414zm10.94 0L21 18l-2.69 2.69A1 1 0 0 0 18.31 22.5H23a1 1 0 0 0 1-1V16.75a1 1 0 0 0-1.707-.707L20.94 17.414l-3.47-3.47a1 1 0 1 0-1.414 1.414z"/></svg>
+      </button>
+
+    </div>
+
+  </footer><!-- /player -->
+
+</div><!-- /app -->
+<script src="spotify.js"></script>
+
 </body>
 </html>
