@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Spotify-like music player web application">
+  <title>Moodify — Music Player</title>
+
+  <!-- ========== FONTS ========== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ========== ICONS ========== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ========== STYLES ========== -->
+  <link rel="stylesheet" href="spotify.css">
+</head>
+
+<body>
+  <!-- ============================================
+       MOBILE SIDEBAR TOGGLE
+       ============================================ -->
+  <button class="sidebar-toggle" aria-label="Toggle navigation menu" onclick="document.querySelector('.sidebar').classList.toggle('sidebar--open')">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- ============================================
+       SIDEBAR — Left Navigation
+       ============================================ -->
+  <aside class="sidebar" aria-label="Main navigation">
+
+    <!-- Logo -->
+    <a href="#" class="sidebar__logo" aria-label="Moodify home">
+      <span class="sidebar__logo-icon"><i class="fas fa-music"></i></span>
+      <span class="sidebar__logo-text">Moodify</span>
+    </a>
+
+    <!-- Primary Navigation -->
+    <nav class="sidebar__nav" aria-label="Primary">
+      <ul class="sidebar__nav-list" role="list">
+        <li class="sidebar__nav-item">
+          <a href="#" class="sidebar__nav-link sidebar__nav-link--active" aria-current="page">
+            <i class="fas fa-house"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="sidebar__nav-item">
+          <a href="#" class="sidebar__nav-link">
+            <i class="fas fa-magnifying-glass"></i>
+            <span>Search</span>
+          </a>
+        </li>
+        <li class="sidebar__nav-item">
+          <a href="#" class="sidebar__nav-link">
+            <i class="fas fa-book-open"></i>
+            <span>Your Library</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar__divider" role="separator"></div>
+
+    <!-- Playlists Section -->
+    <section class="sidebar__playlists" aria-label="Your playlists">
+      <div class="sidebar__playlists-header">
+        <h2 class="sidebar__playlists-title">Playlists</h2>
+        <button class="sidebar__create-btn" aria-label="Create new playlist">
+          <i class="fas fa-plus"></i>
+          <span>New</span>
+        </button>
+      </div>
+
+      <ul class="sidebar__playlist-list" role="list">
+        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Chill Vibes 🌊">
+          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl1/80/80" alt="Chill Vibes playlist cover" loading="lazy">
+          <div class="sidebar__playlist-info">
+            <p class="sidebar__playlist-name">Chill Vibes 🌊</p>
+            <p class="sidebar__playlist-meta">24 songs</p>
+          </div>
+        </li>
+        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Late Night Drive">
+          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl2/80/80" alt="Late Night Drive playlist cover" loading="lazy">
+          <div class="sidebar__playlist-info">
+            <p class="sidebar__playlist-name">Late Night Drive</p>
+            <p class="sidebar__playlist-meta">18 songs</p>
+          </div>
+        </li>
+        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Workout Energy">
+          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl3/80/80" alt="Workout Energy playlist cover" loading="lazy">
+          <div class="sidebar__playlist-info">
+            <p class="sidebar__playlist-name">Workout Energy</p>
+            <p class="sidebar__playlist-meta">36 songs</p>
+          </div>
+        </li>
+        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Focus Mode">
+          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl4/80/80" alt="Focus Mode playlist cover" loading="lazy">
+          <div class="sidebar__playlist-info">
+            <p class="sidebar__playlist-name">Focus Mode</p>
+            <p class="sidebar__playlist-meta">42 songs</p>
+          </div>
+        </li>
+        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Throwback Hits">
+          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl5/80/80" alt="Throwback Hits playlist cover" loading="lazy">
+          <div class="sidebar__playlist-info">
+            <p class="sidebar__playlist-name">Throwback Hits</p>
+            <p class="sidebar__playlist-meta">53 songs</p>
+          </div>
+        </li>
+        <li class="sidebar__playlist-item" tabindex="0" role="button" aria-label="Open playlist: Acoustic Mornings">
+          <img class="sidebar__playlist-thumb" src="https://picsum.photos/seed/pl6/80/80" alt="Acoustic Mornings playlist cover" loading="lazy">
+          <div class="sidebar__playlist-info">
+            <p class="sidebar__playlist-name">Acoustic Mornings</p>
+            <p class="sidebar__playlist-meta">19 songs</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+  </aside>
+
+  <!-- Mobile overlay -->
+  <div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('sidebar--open')" aria-hidden="true"></div>
+
+  <!-- ============================================
+       MAIN CONTENT AREA
+       ============================================ -->
+  <main class="main" id="main-content">
+
+    <!-- ---- Top Bar ---- -->
+    <header class="topbar">
+      <div class="topbar__nav">
+        <button class="topbar__nav-btn" aria-label="Go back">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="topbar__nav-btn" aria-label="Go forward">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="topbar__search">
+        <i class="fas fa-search topbar__search-icon" aria-hidden="true"></i>
+        <input
+          type="search"
+          class="topbar__search-input"
+          placeholder="What do you want to listen to?"
+          aria-label="Search songs, artists, or albums"
+        >
+      </div>
+
+      <div class="topbar__profile">
+        <button class="topbar__notification-btn" aria-label="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="topbar__notification-badge" aria-label="New notifications"></span>
+        </button>
+        <button class="topbar__user-btn" aria-label="User menu">
+          <img class="topbar__avatar" src="https://picsum.photos/seed/avatar/60/60" alt="User avatar">
+          <span class="topbar__username">Alex M.</span>
+          <i class="fas fa-caret-down" aria-hidden="true"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- ---- Content Sections ---- -->
+    <div class="content">
+
+      <!-- ---- Recently Played Section ---- -->
+      <section class="section" aria-labelledby="recently-played-heading">
+        <div class="section__header">
+          <h2 class="section__title" id="recently-played-heading">Recently Played</h2>
+          <a href="#" class="section__link">Show all</a>
+        </div>
+
+        <div class="card-grid" role="list">
+
+          <!-- Song Card 1 -->
+          <article class="song-card" role="listitem" tabindex="0" aria-label="Midnight Rain by Aurora Skies">
+            <div class="song-card__image-wrapper">
+              <img
+                class="song-card__image"
+                src="https://picsum.photos/seed/song1/300/300"
+                alt="Album artwork for Midnight Rain"
+                loading="lazy"
+              >
+              <button class="song-card__play-btn" aria-label="Play Midnight Rain">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+            <h3 class="song-card__title">Midnight Rain</h3>
+            <p class="song-card__artist">Aurora Skies</p>
+          </article>
+
+          <!-- Song Card 2 -->
+          <article class="song-card" role="listitem" tabindex="0" aria-label="Golden Hour by Luna Rivers">
+            <div class="song-card__image-wrapper">
+              <img
+                class="song-card__image"
+                src="https://picsum.photos/seed/song2/300/300"
+                alt="Album artwork for Golden Hour"
+                loading="lazy"
+              >
+              <button class="song-card__play-btn" aria-label="Play Golden Hour">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+            <h3 class="song-card__title">Golden Hour</h3>
+            <p class="song-card__artist">Luna Rivers</p>
+          </article>
+
+          <!-- Song Card 3 -->
+          <article class="song-card" role="listitem" tabindex="0" aria-label="Electric Dreams by Neon Pulse">
+            <div class="song-card__image-wrapper">
+              <img
+                class="song-card__image"
+                src="https://picsum.photos/seed/song3/300/300"
+                alt="Album artwork for Electric Dreams"
+                loading="lazy"
+              >
+              <button class="song-card__play-btn" aria-label="Play Electric Dreams">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+            <h3 class="song-card__title">Electric Dreams</h3>
+            <p class="song-card__artist">Neon Pulse</p>
+          </article>
+
+          <!-- Song Card 4 -->
+          <article class="song-card" role="listitem" tabindex="0" aria-label="Ocean Waves by Coral Reef">
+            <div class="song-card__image-wrapper">
+              <img
+                class="song-card__image"
+                src="https://picsum.photos/seed/song4/300/300"
+                alt="Album artwork for Ocean Waves"
+                loading="lazy"
+              >
+              <button class="song-card__play-btn" aria-label="Play Ocean Waves">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+            <h3 class="song-card__title">Ocean Waves</h3>
+            <p class="song-card__artist">Coral Reef</p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ---- Trending Songs Section ---- -->
+      <section class="section" aria-labelledby="trending-heading">
+        <div class="section__header">
+          <h2 class="section__title" id="trending-heading">Trending Songs</h2>
+          <a href="#" class="section__link">Show all</a>
+        </div>
+
+        <div class="card-grid" role="list">
+
+          <!-- Song Card 5 -->
+          <article class="song-card" role="listitem" tabindex="0" aria-label="Supernova by Cosmic Drift">
+            <div class="song-card__image-wrapper">
+              <img
+                class="song-card__image"
+                src="https://picsum.photos/seed/song5/300/300"
+                alt="Album artwork for Supernova"
+                loading="lazy"
+              >
+              <button class="song-card__play-btn" aria-label="Play Supernova">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+            <h3 class="song-card__title">Supernova</h3>
+            <p class="song-card__artist">Cosmic Drift</p>
+          </article>
+
+          <!-- Song Card 6 -->
+          <article class="song-card" role="listitem" tabindex="0" aria-label="Velvet Sky by Ember & Ash">
+            <div class="song-card__image-wrapper">
+              <img
+                class="song-card__image"
+                src="https://picsum.photos/seed/song6/300/300"
+                alt="Album artwork for Velvet Sky"
+                loading="lazy"
+              >
+              <button class="song-card__play-btn" aria-label="Play Velvet Sky">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+            <h3 class="song-card__title">Velvet Sky</h3>
+            <p class="song-card__artist">Ember &amp; Ash</p>
+          </article>
+
+          <!-- Song Card 7 -->
+          <article class="song-card" role="listitem" tabindex="0" aria-label="Faded Memories by Ivory Keys">
+            <div class="song-card__image-wrapper">
+              <img
+                class="song-card__image"
+                src="https://picsum.photos/seed/song7/300/300"
+                alt="Album artwork for Faded Memories"
+                loading="lazy"
+              >
+              <button class="song-card__play-btn" aria-label="Play Faded Memories">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+            <h3 class="song-card__title">Faded Memories</h3>
+            <p class="song-card__artist">Ivory Keys</p>
+          </article>
+
+          <!-- Song Card 8 -->
+          <article class="song-card" role="listitem" tabindex="0" aria-label="Wildfire by Phoenix Blaze">
+            <div class="song-card__image-wrapper">
+              <img
+                class="song-card__image"
+                src="https://picsum.photos/seed/song8/300/300"
+                alt="Album artwork for Wildfire"
+                loading="lazy"
+              >
+              <button class="song-card__play-btn" aria-label="Play Wildfire">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+            <h3 class="song-card__title">Wildfire</h3>
+            <p class="song-card__artist">Phoenix Blaze</p>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================================
+       MUSIC PLAYER — Fixed at Bottom
+       ============================================ -->
+  <footer class="player" role="contentinfo" aria-label="Music player controls">
+
+    <!-- Now Playing Info -->
+    <div class="player__song">
+      <img
+        class="player__song-image"
+        src="https://picsum.photos/seed/song1/120/120"
+        alt="Currently playing: Midnight Rain album artwork"
+      >
+      <div class="player__song-info">
+        <p class="player__song-title">Midnight Rain</p>
+        <p class="player__song-artist">Aurora Skies</p>
+      </div>
+      <div class="player__song-actions">
+        <button class="player__icon-btn player__icon-btn--active" aria-label="Remove from Liked Songs" aria-pressed="true">
+          <i class="fas fa-heart"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Playback Controls -->
+    <div class="player__controls">
+      <div class="player__buttons">
+        <button class="player__control-btn" aria-label="Toggle shuffle">
+          <i class="fas fa-shuffle"></i>
+        </button>
+        <button class="player__control-btn" aria-label="Previous track">
+          <i class="fas fa-backward-step"></i>
+        </button>
+        <button class="player__control-btn player__control-btn--play" aria-label="Play" aria-pressed="false">
+          <i class="fas fa-play"></i>
+        </button>
+        <button class="player__control-btn" aria-label="Next track">
+          <i class="fas fa-forward-step"></i>
+        </button>
+        <button class="player__control-btn" aria-label="Toggle repeat">
+          <i class="fas fa-repeat"></i>
+        </button>
+      </div>
+
+      <div class="player__progress">
+        <span class="player__time" aria-label="Elapsed time">1:23</span>
+        <label for="progress-bar" class="visually-hidden">Song progress</label>
+        <input
+          type="range"
+          id="progress-bar"
+          class="player__progress-bar"
+          min="0"
+          max="100"
+          value="35"
+          aria-label="Song progress"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="35"
+          aria-valuetext="1 minute 23 seconds of 3 minutes 45 seconds"
+        >
+        <span class="player__time" aria-label="Total duration">3:45</span>
+      </div>
+    </div>
+
+    <!-- Volume & Extra Controls -->
+    <div class="player__extra">
+      <button class="player__icon-btn" aria-label="Now playing view">
+        <i class="fas fa-bars-staggered"></i>
+      </button>
+      <button class="player__icon-btn" aria-label="Connect to a device">
+        <i class="fas fa-desktop"></i>
+      </button>
+      <div class="player__volume">
+        <button class="player__icon-btn" aria-label="Mute">
+          <i class="fas fa-volume-high"></i>
+        </button>
+        <label for="volume-slider" class="visually-hidden">Volume</label>
+        <input
+          type="range"
+          id="volume-slider"
+          class="player__volume-slider"
+          min="0"
+          max="100"
+          value="72"
+          aria-label="Volume"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="72"
+        >
+      </div>
+      <button class="player__icon-btn" aria-label="Full screen">
+        <i class="fas fa-up-right-and-down-left-from-center"></i>
+      </button>
+    </div>
+
+  </footer>
+<script src="spotify.js" defer></script>
+</body>
+</html>
